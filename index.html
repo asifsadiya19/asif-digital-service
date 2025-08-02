@@ -5,85 +5,236 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Asif Digital Service</title>
   <style>
+    :root {
+      --main-color: #d63384;
+      --bg-light: #ffffff;
+      --bg-dark: #121212;
+      --text-light: #000000;
+      --text-dark: #ffffff;
+      --card-light: #ffffff;
+      --card-dark: #1f1f1f;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #ffffff;
-      color: #d63384;
+      background: var(--bg-light);
+      color: var(--main-color);
+      transition: all 0.3s ease;
     }
+
+    body.dark {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+
     header {
-      text-align: center;
       background: linear-gradient(to right, #ff99cc, #ff66cc);
       color: white;
-      padding: 40px 20px;
+      text-align: center;
+      padding: 50px 20px;
+      position: relative;
     }
+
+    .toggle-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: #ffffff;
+      color: #d63384;
+      padding: 8px 16px;
+      border-radius: 20px;
+      border: none;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background: #ffe6f0;
+    }
+
     header img {
-      width: 140px;
-      border-radius: 10px;
-      box-shadow: 0 0 20px #ff66cc;
+      width: 160px;
+      border-radius: 12px;
       margin-bottom: 20px;
+      box-shadow: 0 4px 20px #ff66cc;
     }
+
     h1 {
-      margin: 10px 0 5px;
-      font-size: 32px;
+      font-size: 40px;
+      margin: 10px 0;
     }
-    p {
-      margin: 0;
-      font-size: 18px;
-    }
+
     main {
-      padding: 30px;
-      max-width: 800px;
+      padding: 40px 20px;
+      max-width: 1000px;
       margin: auto;
       text-align: center;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 16px;
+      margin-top: -30px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.1);
     }
+
+    body.dark main {
+      background: rgba(20, 20, 20, 0.9);
+    }
+
     .btn {
       background: #d63384;
       color: white;
-      padding: 12px 25px;
+      padding: 14px 30px;
       border: none;
-      border-radius: 25px;
+      border-radius: 30px;
       text-decoration: none;
-      font-size: 16px;
-      margin: 10px;
+      font-size: 18px;
+      margin: 15px 10px;
       display: inline-block;
-      box-shadow: 0 4px 10px rgba(214, 51, 132, 0.3);
+      box-shadow: 0 4px 15px rgba(214, 51, 132, 0.4);
+      transition: all 0.3s ease;
     }
+
     .btn:hover {
       background: #c2185b;
+      transform: translateY(-2px);
     }
+
+    .services {
+      margin-top: 40px;
+    }
+
+    .services h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    .service-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .service-item {
+      background: var(--card-light);
+      border-radius: 12px;
+      padding: 20px;
+      width: 250px;
+      box-shadow: 0 4px 20px rgba(214, 51, 132, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    body.dark .service-item {
+      background: var(--card-dark);
+      color: var(--text-dark);
+    }
+
+    .service-item:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 25px rgba(214, 51, 132, 0.3);
+    }
+
+    .service-item h3 {
+      margin-top: 10px;
+      font-size: 20px;
+      color: #d63384;
+    }
+
+    .service-item p {
+      color: #555;
+      font-size: 15px;
+    }
+
+    body.dark .service-item p {
+      color: #ccc;
+    }
+
+    .counter {
+      margin-top: 40px;
+      font-size: 18px;
+      color: #666;
+    }
+
+    body.dark .counter {
+      color: #ccc;
+    }
+
     footer {
       text-align: center;
       background: #f9f9f9;
       padding: 20px;
-      margin-top: 40px;
+      margin-top: 60px;
       font-size: 14px;
-      color: #555;
+      color: #888;
+    }
+
+    body.dark footer {
+      background: #1a1a1a;
+      color: #bbb;
     }
   </style>
 </head>
 <body>
-
   <header>
-    <img src="https://chat.openai.com/cdn-cgi/image/width=512,quality=80,format=auto/https://files.oaiusercontent.com/file-XxgmbdYSmgNzGhhgOCgJDeFW?se=2025-08-02T21%3A48%3A27Z&sp=r&sv=2021-08-06&sr=b&sig=ZyU6kiKibvTmw6i3M0aEpdZnFj5a6VuB4s3Ad%2Fwq7lo%3D" alt="Asif Digital Service Logo">
+    <button class="toggle-btn" onclick="toggleTheme()">🌗 Theme</button>
+    <img src="https://y0h0i3cqozxm.manus.space" alt="Asif Digital Service Logo">
     <h1>Asif Digital Service</h1>
-    <p>Creative Solutions | Digital Tools | Smart Design</p>
+    <p>Smart Digital Tools | Creative Design | Trusted Service</p>
   </header>
 
   <main>
-    <h2>Welcome to My Digital Space</h2>
+    <h2>Welcome to My Website</h2>
     <p>
-      I'm Asif Shaikh – passionate about delivering smart digital services that help your business grow.
-      Let's connect and bring your vision to life!
+      I’m Asif Shaikh. I help businesses and individuals grow online through digital services. Let’s connect!
     </p>
-    
     <a class="btn" href="mailto:ashaikh9222@gmail.com">📧 Email Me</a>
     <a class="btn" href="https://www.instagram.com/asif_digital_service?igsh=c3o0aGlmZnpnaXEz" target="_blank">📸 Instagram</a>
+    <a class="btn" href="Asif_Resume.pdf" download>📄 Download Resume</a>
+
+    <section class="services">
+      <h2>My Services</h2>
+      <div class="service-list">
+        <div class="service-item">
+          <h3>Logo Design</h3>
+          <p>Custom modern logos that reflect your brand identity beautifully.</p>
+        </div>
+        <div class="service-item">
+          <h3>Social Media Posters</h3>
+          <p>Eye-catching posters, templates & reels for Instagram and more.</p>
+        </div>
+        <div class="service-item">
+          <h3>Website Setup</h3>
+          <p>Static or portfolio websites with professional themes & styling.</p>
+        </div>
+        <div class="service-item">
+          <h3>Reel Editing</h3>
+          <p>Short video reels with captions, transitions & music.</p>
+        </div>
+      </div>
+    </section>
+
+    <div class="counter">
+      👁️ Total Visitors:  
+      <img src="https://hitwebcounter.com/counter/counter.php?page=1234567&style=0038&nbdigits=5&type=page&initCount=0" alt="Visitor Counter">
+    </div>
   </main>
 
   <footer>
     &copy; 2025 Asif Digital Service. All rights reserved.
   </footer>
 
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle("dark");
+      localStorage.setItem("theme", body.classList.contains("dark") ? "dark" : "light");
+    }
+
+    window.onload = function () {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") document.body.classList.add("dark");
+    };
+  </script>
 </body>
   </html>
